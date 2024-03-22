@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import { dirname, join } from 'path';
 import { fileURLToPath } from "url";
 
+import clientesRoutes from './routes/clientes.routes.js';
 //inicializar
 const app=express();
 const __dirname=dirname(fileURLToPath(import.meta.url));
@@ -31,7 +32,7 @@ app.set('view engine', 'hbs');
 app.get('/',(req,res)=>{
     res.render('index')
 })
-
+app.use(clientesRoutes)
 app.use(express.static(join(__dirname, 'public')))
 
 //ejecutar al servidor
