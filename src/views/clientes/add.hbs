@@ -1,0 +1,33 @@
+    <div class="row">
+    <div class="col-md-4 mx-auto">
+        <div class="card text-center">
+        <div class="card-header">
+            <h3 class="text-uppercase">CREAR CLIENTE</h3>
+        </div>
+        <div class="card-body">
+            <form action="/add" method="post">
+            <div class="input-group mt-2">
+                <label for="name" class="input-group-text">Nombres</label>
+                <input class="form-control" type="text" name="nomcli" id="nomcli" placeholder="Nombres" autofocus required>
+            </div>
+            <div class="input-group mt-2">
+                <label for="lastname" class="input-group-text">Apellidos</label>
+                <input class="form-control" type="text" name="apecli" id="apecli" placeholder="Apellidos" required>
+            </div>
+            <div class="input-group mt-2">
+                <label for="dni" class="input-group-text">Nro. DNI</label>
+                <input class="form-control" type="text" name="nrodnicli" id="nrodnicli" placeholder="No. DNI" required>
+            </div>
+            <div class="input-group mt-2">
+                <label for="phone" class="input-group-text">Nro. Teléfono</label>
+                <input class="form-control" type="text" name="telecli" id="telcli" placeholder="Nro. Teléfono" required>
+            </div>
+            <div class="form-group mt-4 d-grid gap-2">
+                <button class="btn btn-success">Guardar</button>
+                <a class="btn btn-danger" href="/list">Cancelar</a>
+            </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    </div>
