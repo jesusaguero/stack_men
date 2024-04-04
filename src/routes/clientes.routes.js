@@ -20,4 +20,29 @@ router.post('/add', async(req, res) => {
         res.status(500).json({message: err.message});
     }
 });
+
+router.get('/edit/:id', async(req, res)=>{
+    try{
+        const {id} = req.params;
+        const [cliente] = await pool.query('SELECT * FROM clientes WHERE id = ?', [id]);
+        const clienteEdit = cliente[0];
+        res.render('cliente/edit', {cliente: clienteEdit});
+    }
+    catch(err){
+        res.status(500).json({message:err.message});
+    }
+})
+
+router.post('/edit/:id', async(req, res)=>{
+    try{
+        const {nomcli, apecli, nrodnicli, telcli} = req.body;
+        const {id} = req.params;
+        const editCliente = {nomcli, apecli, nrodnicli, telcli};
+        await pool.query('UPDATE clientes SET ? WHERE id = ?', [editcCliente, id]);
+        res.redirect('/list');
+    }
+    catch(err){
+        res.status(500).json({message: err.message});
+    }
+});
 export default router;

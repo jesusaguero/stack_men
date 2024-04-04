@@ -1,0 +1,35 @@
+<div class="container p-4" style="margin-top: 70px;">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3 class="text-uppercase">ACTUALIZAR CLIENTE</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/edit/{{cliente.id}}" method="post">
+                        <div class="input-group mt-2">
+                            <label for="name" class="input-group-text">Nombre</label>
+                            <input class="form-control" type="text" name="nomcli" id="nomcli" placeholder="Nombres" value="{{cliente.nomcli}}" autofocus required>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="lastname" class="input-group-text">Apellidos</label>
+                            <input class="form-control" type="text" name="apecli" id="apecli" placeholder="Apellidos" value="{{cliente.apecli}}" required>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="age" class="input-group-text">Nro. DNI</label>
+                            <input class="form-control" type="text" name="nrodnicli" id="nrodnicli" value="{{cliente.nrodnicli}}" placeholder="Nro. DNI" required>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="age" class="input-group-text">Nro. Teléfono</label>
+                            <input class="form-control" type="text" name="telcli" id="telcli" placeholder="Nro. Célular" value="{{cliente.telcli}}" required>
+                        </div>
+                        <div class="form-group mt-4 d-grid gap-2">
+                            <button class="btn btn-success">Actualizar</button>
+                            <a class="btn btn-danger" href="/list">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
