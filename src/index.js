@@ -6,6 +6,7 @@ import { dirname, join } from 'path';
 import { fileURLToPath } from "url";
 
 import clientesRoutes from './routes/clientes.routes.js';
+
 //inicializar
 const app=express();
 const __dirname=dirname(fileURLToPath(import.meta.url));
@@ -13,26 +14,25 @@ const __dirname=dirname(fileURLToPath(import.meta.url));
 //configuraciones
 app.set('port',process.env.PORT || 3000);
 //Carpeta vistas
+app.set('views', join(__dirname, 'views'));
 
 app.engine('.hbs', engine({
-    extname: '.hbs',
     defaultLayout: 'main',
-    layoutsDir: path.join(__dirname, 'views/layouts'),
-    layoutsDir: path.join(__dirname, 'views/partials'),
-
+    layoutsDir: join(app.get('views'), 'layouts'),
+    partialsDir: join(app.get('views'), 'partials'),
+    extname: '.hbs'
 }));
 app.set('view engine', '.hbs');
-app.set('views', path.join(__dirname, 'views'));
-
 //Middlewares
     app.use(morgan('dev'));
     app.use(express.urlencoded({extended:false}));
-    app.use(express.json())
+    app.use(express.json());
 
-
+//Routes
 app.get('/',(req,res)=>{
     res.render('index')
 })
+
 app.use(clientesRoutes)
 app.use(express.static(join(__dirname, 'public')))
 
