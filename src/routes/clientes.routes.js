@@ -45,4 +45,15 @@ router.post('/edit/:id', async(req, res)=>{
         res.status(500).json({message: err.message});
     }
 });
+
+router.get('/delete/:id', async(req, res)=>{
+    try{
+        const {id} = req.params;
+        await pool.query('DELETE FROM clientes WHERE id = ?', [id]);
+        res.redirect('/list');
+    }
+    catch(err){
+        res.status(500).json({message: err.message});
+    }
+});
 export default router;
